@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Żabka Nowaka — Promocja 67</title>
+    <style>
+        :root {
+            --primary-color: #006420; /* Główna zieleń Żabki */
+            --accent-color: #abc916;  /* Jasny zielony / limonkowy */
+            --dark-color: #222222;
+            --light-color: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            position: relative;
+            font-size: 1.8rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Styl Promocji i Produktów */
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+            text-align: center;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 15px 0;
+            background-color: rgba(171, 201, 22, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Sekcja Gier */
+        .games-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .games-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .game-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--light-color);
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            transition: background 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .game-item:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding-left: 25px;
+        }
+
+        .game-item span::after {
+            content: ' ➔';
+        }
+
+        /* Sekcja Lokalizacji */
+        .location-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .location-box {
+            background-color: #fff9e6;
+            border: 2px dashed #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .location-box h3 {
+            color: #b38600;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .location-details {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Klikalny kafelek mapy / link */
+        .map-link-button {
+            display: block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .map-link-button:hover {
+            background-color: #004d18;
+            transform: scale(1.02);
+            color: var(--accent-color);
+        }
+
+        .map-link-button span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: #ddd;
+            margin-top: 5px;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: #999;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .product-card { padding: 15px; }
+            .game-item { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Żabka Nowaka</h1>
+        <p>Wyjątkowa Promocja 67</p>
+    </header>
+
+    <div class="container">
+
+        <h2 class="section-title">Nasze Super Oferty</h2>
+        <div class="promo-grid">
+            
+            <div class="product-card">
+                <div>
+                    <div class="product-icon">🍯</div>
+                    <div class="product-name">Musztarda Mango & Do Pieca Mango</div>
+                    <p style="color: #666; font-size: 0.9rem;">Idealny, egzotyczny zestaw w super cenie!</p>
+                </div>
+                <div>
+                    <div class="price-tag">3,67 zł</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-icon">🔥</div>
+                    <div class="product-name">Piec</div>
+                    <p style="color: #666; font-size: 0.9rem;">Niezawodna jakość wypieków w Twoim zasięgu.</p>
+                </div>
+                <div>
+                    <div class="price-tag">300,00 zł</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <div class="product-icon">🌭</div>
+                    <div class="product-name">Musztarda</div>
+                    <p style="color: #666; font-size: 0.9rem;">Klasyczny dodatek, ulubiony smak do hot-dogów.</p>
+                </div>
+                <div>
+                    <div class="price-tag">5,00 zł</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="games-section">
+            <h2 class="section-title" style="text-align: left;">Nasze Nowe Gry!</h2>
+            <p>Zagraj w niesamowite nowości prosto w przeglądarce podczas przerwy na przekąskę:</p>
+            <div class="games-list">
+                <a href="https://bbydadibudabadidujabu.github.io/Polystrike3DMultiplayer/" target="_blank" class="game-item">
+                    <span>Polystrike 3D Multiplayer</span>
+                    <small>Kliknij, aby zagrać</small>
+                </a>
+                <a href="https://bbydadibudabadidujabu.github.io/Franeks-Playground/" target="_blank" class="game-item">
+                    <span>Franek's Playground</span>
+                    <small>Kliknij, aby zagrać</small>
+                </a>
+            </div>
+        </div>
+
+        <div class="location-section">
+            <h2 class="section-title">Nasza Lokalizacja</h2>
+            <p style="text-align: center;">Idziemy na całą Polskę! Znajdziesz nas w wyjątkowym punkcie:</p>
+            
+            <div class="location-box">
+                <h3>📍 Żabka w Twoim Mieście</h3>
+                <div class="location-details">
+                    Bobolice (woj. zachodniopomorskie)<br>
+                    ul. Zwycięstwa<br>
+                    <span style="color: var(--primary-color); font-weight: bold;">(Tuż przy Biedronce na mieście!)</span>
+                </div>
+                
+                <a href="https://maps.app.goo.gl/UGwRFXPMZZ8CjQDG7" target="_blank" class="map-link-button">
+                    🗺️ Otwórz mapę dojazdu
+                    <span>Kliknij, aby przejść do: googleusercontent.com/maps.google.com/0</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Żabka Nowaka. Wszelkie prawa zastrzeżone. Oferta ważna do wyczerpania zapasów.</p>
+    </footer>
+
+</body>
+</html>
